@@ -1,0 +1,152 @@
+/* src/index.css */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom Styles */
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        background-color: #1D224C;
+        color: #A8B2D1; /* Theme-compatible soft blue-gray for body text */
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+    
+    /* Dark navy card style matching NeuroNexus theme */
+    .bg-white {
+        background-color: rgba(26, 34, 59, 0.6) !important;
+        border: 1px solid rgba(255, 255, 255, 0.06) !important;
+        @apply shadow-lg;
+    }
+    
+    /* Premium Dark Input Styles */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    input[type="tel"],
+    input[type="url"],
+    input[type="date"],
+    textarea,
+    select {
+        background-color: #1A223B !important;
+        border: 1px solid #2D335A !important;
+        color: #FFFFFF !important;
+    }
+    
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus,
+    input[type="number"]:focus,
+    input[type="tel"]:focus,
+    input[type="url"]:focus,
+    input[type="date"]:focus,
+    textarea:focus,
+    select:focus {
+        border-color: #8A6FFF !important;
+        box-shadow: 0 0 0 2px rgba(138, 111, 255, 0.2) !important;
+        outline: none !important;
+    }
+    
+    input::placeholder,
+    textarea::placeholder {
+        color: #7A86AD !important;
+        opacity: 1;
+    }
+    
+    /* Form Labels */
+    label {
+        color: #C7CCE6 !important;
+    }
+    
+    /* Headings */
+    h1, h2, h3, h4, h5, h6 {
+        color: #F5F6FF !important;
+    }
+}
+
+@layer utilities {
+    /* Custom scrollbar */
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    /* Grid pattern for backgrounds */
+    .bg-grid-pattern {
+        background-image: radial-gradient(circle, #000 1px, transparent 1px);
+        background-size: 20px 20px;
+    }
+    /* Glass effect */
+    .glass {
+        @apply backdrop-blur-md bg-white/10 border border-white/20;
+    }
+    /* Gradient text */
+    .gradient-text {
+        @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+    }
+}
+
+/* Ticker Animation Styles - True Infinite Seamless Loop */
+.ticker-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(90deg, rgba(29, 34, 76, 0.9) 0%, transparent 8%, transparent 92%, rgba(29, 34, 76, 0.9) 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, black 5%, black 95%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+
+.ticker-content {
+    display: inline-flex;
+    width: max-content;
+    will-change: transform;
+    animation: ticker-scroll 40s linear infinite;
+}
+
+.ticker-text {
+    display: inline-block;
+    padding-right: 5rem;
+    background: linear-gradient(90deg, #60A5FA, #A78BFA, #EC4899, #F59E0B, #10B981, #60A5FA);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.125rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    animation: gradient-flow 6s linear infinite;
+}
+
+@keyframes ticker-scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes gradient-flow {
+    0% {
+        background-position: 0% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+/* Optional: Pause on hover for readability */
+.ticker-wrapper:hover .ticker-content {
+    animation-play-state: paused;
+}
+
+.ticker-wrapper:hover .ticker-text {
+    animation-play-state: paused;
+}
