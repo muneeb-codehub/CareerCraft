@@ -1,0 +1,50 @@
+{
+    "name": "server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+        "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch",
+        "test:coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
+        "dev": "nodemon index.js",
+        "start": "node index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@google/generative-ai": "^0.24.1",
+        "@pdf-lib/fontkit": "^1.1.1",
+        "bcryptjs": "^3.0.2",
+        "cors": "^2.8.5",
+        "docx": "^9.5.1",
+        "docx-parser": "^0.2.1",
+        "dotenv": "^17.2.3",
+        "express": "^5.1.0",
+        "express-rate-limit": "^8.0.1",
+        "groq-sdk": "^0.33.0",
+        "jsonrepair": "^3.13.1",
+        "jsonwebtoken": "^9.0.2",
+        "mammoth": "^1.11.0",
+        "mongoose": "^8.18.0",
+        "multer": "^2.0.2",
+        "nodemailer": "^7.0.11",
+        "openai": "^5.23.2",
+        "pdf-lib": "^1.17.1",
+        "pdf-parse": "^1.1.1",
+        "pdf.js-extract": "^0.2.1",
+        "pdfjs-dist": "^5.4.296",
+        "pdfkit": "^0.17.1",
+        "redis": "^5.10.0",
+        "swagger-jsdoc": "^6.2.8",
+        "swagger-ui-express": "^5.0.1"
+    },
+    "devDependencies": {
+        "@babel/preset-env": "^7.28.5",
+        "jest": "^30.2.0",
+        "nodemon": "^3.1.10",
+        "supertest": "^7.2.2"
+    }
+}
