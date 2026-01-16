@@ -5,17 +5,7 @@ export default defineConfig({
     plugins: [
         react({
             // Enable Fast Refresh
-            fastRefresh: true,
-            // Babel plugins for optimization
-            babel: {
-                plugins: [
-                    // Remove console.log in production
-                    process.env.NODE_ENV === 'production' && [
-                        'transform-remove-console',
-                        { exclude: ['error', 'warn'] }
-                    ]
-                ].filter(Boolean)
-            }
+            fastRefresh: true
         })
     ],
     server: {
