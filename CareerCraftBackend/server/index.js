@@ -117,9 +117,13 @@ connectDB().catch(err => {
 
 // For Vercel serverless deployment
 if (process.env.VERCEL) {
-    // Export the Express app for Vercel
-    export default app;
-} else {
+    // Vercel deployment: do not start server, just export app
+}
+
+// Export the Express app for Vercel
+export default app;
+
+if (!process.env.VERCEL) {
     // Start server normally for local development
     app.listen(PORT, () => {
         console.log(`\n🚀 Server running on port ${PORT}`);
