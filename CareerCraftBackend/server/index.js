@@ -110,18 +110,18 @@ const PORT = process.env.PORT || 5000;
 //     console.warn('⚠️  Redis not available:', err.message);
 // });
 
-// Connect to MongoDB
-connectDB().catch(err => {
-    console.error("❌ MongoDB connection failed:", err);
+// Connect to MongoDB and start server
+connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log(`\n🚀 Server running on port ${PORT}`);
+        console.log(`📝 API Documentation: http://localhost:${PORT}/api-docs`);
+        console.log('═'.repeat(50));
+    });
+}).catch(err => {
+    console.error("❌ Failed to start server:", err);
+    process.exit(1);
 });
 
-// For Vercel serverless deployment
-if (process.env.VERCEL) {
-    // Vercel deployment: do not start server, just export app
-}
-
-// Export the Express app for Vercel
-export default app;
 
 if (!process.env.VERCEL) {
     // Start server normally for local development
